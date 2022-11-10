@@ -1,0 +1,25 @@
+using UnityEngine;
+
+namespace BING
+{
+    /// <summary>
+    /// 發射系統基底
+    /// </summary>
+    public class FireSystemBase : MonoBehaviour
+    {
+        [SerializeField, Header("子彈預製物")]
+        private GameObject prefabBullet;
+        [SerializeField, Header("子彈生成點")]
+        private Transform pointSpawn;
+
+        // 自訂方法
+        // 生成子彈
+        // 允許 : 子類別存取
+        protected void SpawnBullet()
+        {
+            // 實例化(生成物件，座標，角度)；
+            // 生成 子彈預製物 座標與角度生成點相同
+            Instantiate(prefabBullet, pointSpawn.position, pointSpawn.rotation);
+        }
+    }
+}
