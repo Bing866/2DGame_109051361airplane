@@ -1,22 +1,30 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace BING
 {
     /// <summary>
-    /// ¼Ä¤Hµo®g¨t²Î
+    /// æ•µäººç™¼å°„ç³»çµ±
     /// </summary>
     public class EnemyFireSystem : FireSystemBase
     {
-        [SerializeField, Header("¥Í¦¨¤l¼u¶¡¹j"), Range(0, 3)]
+        [SerializeField, Header("ç”Ÿæˆå­å½ˆé–“éš”"), Range(0, 3)]
         private float interval = 1.5f;
 
         private void Awake()
         {
-            // ©I¥s¤èªk
+            // å‘¼å«æ–¹æ³•
             //SpawnBullet();
+        }
 
-            // ©µ¿ğ­«½Æ©I¥s("¤èªk¦WºÙ"¡A©µ¿ğ®É¶¡¡A­«½ÆÀW²v)
-            InvokeRepeating("SpawnBullet", 0, interval);
+        private void OnBecameVisible()
+        {
+            // å»¶é²é‡è¤‡å‘¼å«("æ–¹æ³•åç¨±"ï¼Œå»¶é²æ™‚é–“ï¼Œé‡è¤‡é »ç‡)
+            InvokeRepeating("SpawnBullet", 0, interval); 
+        }
+
+        private void OnBecameInvisible()
+        {
+            Destroy(gameObject);
         }
     }
 }

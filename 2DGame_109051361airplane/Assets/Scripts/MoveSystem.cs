@@ -1,21 +1,21 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace BING
 {
     /// <summary>
-    /// ²¾°Ê¨t²Î
+    /// ç§»å‹•ç³»çµ±
     /// </summary>
     public class MoveSystem : MonoBehaviour
     {
-        [SerializeField, Header("²¾°Ê³t«×"), Range(-10, 0)]
+        [SerializeField, Header("ç§»å‹•é€Ÿåº¦"), Range(-10, 0)]
         private float speed = -3.5f;
 
         private void Update()
         {
-            // transform «ü¦¹ª«¥óªº Transform ¤¸¥ó
-            // Translate(x, y, z) ¦ì²¾
-            // * ­¼ªk
-            // Time.delateTime ¨C´Vªº®É¶¡
+            // transform æŒ‡æ­¤ç‰©ä»¶çš„ Transform å…ƒä»¶
+            // Translate(x, y, z) ä½ç§»
+            // * ä¹˜æ³•
+            // Time.delateTime æ¯å¹€çš„æ™‚é–“
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
     }

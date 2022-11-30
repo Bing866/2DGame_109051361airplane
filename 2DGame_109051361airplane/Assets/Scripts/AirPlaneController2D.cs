@@ -1,35 +1,35 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace BING
 {
     /// <summary>
-    /// 2D­¸¾÷±±¨î¾¹
+    /// 2Dé£›æ©Ÿæ§åˆ¶å™¨
     /// </summary>
     public class AirPlaneController2D : MonoBehaviour
     {
-        [Header("²¾°Ê³t«×")]
+        [Header("ç§»å‹•é€Ÿåº¦")]
         [SerializeField, Range(0, 10)]
         private float speedVertical = 3.5f;
         [SerializeField, Range(0, 10)]
         private float speedHorizontal = 4f;
-        [Header("¹Ï¤ù")]
+        [Header("åœ–ç‰‡")]
         [SerializeField] private Sprite pictureUp;
         [SerializeField] private Sprite pictureMiddle;
         [SerializeField] private Sprite pictureDown;
-        [SerializeField, Header("¹Ï¤ù´è¬V¤¸¥ó")]
+        [SerializeField, Header("åœ–ç‰‡æ¸²æŸ“å…ƒä»¶")]
         private SpriteRenderer spr;
 
         private void Update()
         {
-            // ¤W¤U WS - Vertical
-            // ¤W W +1
-            // ¤U S -1
-            // ¨S«ö 0
-            // ¿é¤J.¨ú±o¶b¦V­È(¶b¦V¦WºÙ) - ¨ú±oª±®a«ö¤U«öÁäªº­È
+            // ä¸Šä¸‹ WS - Vertical
+            // ä¸Š W +1
+            // ä¸‹ S -1
+            // æ²’æŒ‰ 0
+            // è¼¸å…¥.å–å¾—è»¸å‘å€¼(è»¸å‘åç¨±) - å–å¾—ç©å®¶æŒ‰ä¸‹æŒ‰éµçš„å€¼
             float v = Input.GetAxis("Vertical");
-            //print("<color=red>ª±®a¤W¤U«öÁä : " + v + "</color>");
+            //print("<color=red>ç©å®¶ä¸Šä¸‹æŒ‰éµ : " + v + "</color>");
 
-            // ¥ª¥k AD - Horizontal
+            // å·¦å³ AD - Horizontal
             float h = Input.GetAxis("Horizontal");
 
             transform.Translate(
@@ -37,24 +37,24 @@ namespace BING
                 speedVertical * Time.deltaTime * v, 
                 0);
 
-            // ¦pªG v ¤j©ó 1 ´N©¹¤W
+            // å¦‚æœ v å¤§æ–¼ 1 å°±å¾€ä¸Š
             if (v > 0) 
             {
-                //print("©¹¤W");
+                //print("å¾€ä¸Š");
 
                 spr.sprite = pictureUp;
             }
-            // ¦pªG v ¤p©ó 1 ´N©¹¤U
+            // å¦‚æœ v å°æ–¼ 1 å°±å¾€ä¸‹
             if (v < 0)
             {
-                //print("©¹¤U");
+                //print("å¾€ä¸‹");
 
                 spr.sprite = pictureDown;
             }
-            // ¦pªG v µ¥©ó 0 ´N¤¤¶¡
+            // å¦‚æœ v ç­‰æ–¼ 0 å°±ä¸­é–“
             if (v == 0)
             {
-                //print("¤¤¶¡");
+                //print("ä¸­é–“");
 
                 spr.sprite = pictureMiddle;
             }

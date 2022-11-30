@@ -1,25 +1,30 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace BING
 {
     /// <summary>
-    /// µo®g¨t²Î°ò©³
+    /// ç™¼å°„ç³»çµ±åŸºåº•é¡åˆ¥
+    /// ç™¼å°„ç³»çµ±åŸºåº•
     /// </summary>
     public class FireSystemBase : MonoBehaviour
     {
-        [SerializeField, Header("¤l¼u¹w»sª«")]
+        [SerializeField, Header("å­å½ˆé è£½ç‰©")]
         private GameObject prefabBullet;
-        [SerializeField, Header("¤l¼u¥Í¦¨ÂI")]
+        [SerializeField, Header("å­å½ˆç”Ÿæˆé»")]
         private Transform pointSpawn;
+        [SerializeField, Header("ç™¼å°„éŸ³æ•ˆ")]
+        private AudioClip soundFire;
 
-        // ¦Û­q¤èªk
-        // ¥Í¦¨¤l¼u
-        // ¤¹³\ : ¤lÃş§O¦s¨ú
+        // è‡ªè¨‚æ–¹æ³•
+        // ç”Ÿæˆå­å½ˆ
+        // å…è¨± : å­é¡åˆ¥å­˜å–
         protected void SpawnBullet()
         {
-            // ¹ê¨Ò¤Æ(¥Í¦¨ª«¥ó¡A®y¼Ğ¡A¨¤«×)¡F
-            // ¥Í¦¨ ¤l¼u¹w»sª« ®y¼Ğ»P¨¤«×¥Í¦¨ÂI¬Û¦P
+            // å¯¦ä¾‹åŒ–(ç”Ÿæˆç‰©ä»¶ï¼Œåº§æ¨™ï¼Œè§’åº¦)ï¼›
+            // ç”Ÿæˆ å­å½ˆé è£½ç‰© åº§æ¨™èˆ‡è§’åº¦ç”Ÿæˆé»ç›¸åŒ
             Instantiate(prefabBullet, pointSpawn.position, pointSpawn.rotation);
+
+            SoundManager.instance.PlaySound(soundFire, new Vector2(0.7f, 1.2f));
         }
     }
 }
